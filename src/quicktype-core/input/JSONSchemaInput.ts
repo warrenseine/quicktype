@@ -950,10 +950,10 @@ async function addTypesInSchema(
                 unionTypes.push(makeStringType(stringAttributes));
             }
 
-            if (includeArray) {
+            if (includeArray || includedTypes.has("array")) {
                 unionTypes.push(await makeArrayType());
             }
-            if (includeObject) {
+            if (includeObject || includedTypes.has("object")) {
                 unionTypes.push(await makeObjectType());
             }
 
